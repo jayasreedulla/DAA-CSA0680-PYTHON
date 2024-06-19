@@ -1,0 +1,38 @@
+10.Given the head of a singly linked list, sort the list using insertion sort, and return the sorted 
+list's head
+PROGRAM:
+class ListNode:
+    def _init_(self, val=0, next=None):
+        self.val = val
+        self.next = next
+def insertion_sort_list(head):
+    if not head or not head.next:
+        return head
+    dummy = ListNode(0)
+    dummy.next = head
+    prev_sorted = head
+    curr = head.next
+    while curr:
+        if prev_sorted.val <= curr.val:
+            prev_sorted = prev_sorted.next
+        else:
+            prev = dummy
+            while prev.next.val <= curr.val:
+                prev = prev.next
+            prev_sorted.next = curr.next
+            curr.next = prev.next
+            prev.next = curr
+        curr = prev_sorted.next
+    return dummy.next
+def print_list(head):
+    current = head
+    while current:
+        print(current.val, end=" ")
+        current = current.next
+    print()
+head = ListNode(7)
+head.next = ListNode(2)
+head.next.next = ListNode(1)
+head.next.next.next = ListNode(5)
+sorted_head = insertion_sort_list(head)
+print_list(sorted_head)
