@@ -1,0 +1,4 @@
+num = -121
+num_str = str(num)
+is_palindrome = num_str == num_str[::-1]
+print(is_palindrome)
