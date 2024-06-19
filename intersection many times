@@ -1,0 +1,6 @@
+Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result must appear as many times as it shows in both arrays and you may return the result in any order.
+a = [23, 29, 20, 29, 20]
+b = [24, 20, 29, 20, 26]
+for element in a:
+    if element in b:
+        print(element, end=" ")
