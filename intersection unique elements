@@ -1,0 +1,10 @@
+def find_common_elements(a, b):
+    n1 = len(a)
+    n2 = len(b)
+    for i in range(n1):
+        for j in range(n2):
+            if a[i] == b[j]:
+                print(a[i], end=" ")
+a = [23, 28, 34, 29, 20]
+b = [24, 20, 29, 35, 26]
+find_common_elements(a, b)
