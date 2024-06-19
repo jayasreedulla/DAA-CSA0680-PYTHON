@@ -1,0 +1,11 @@
+Sort the array so that whenever nums[i] is odd, i is odd, and whenever nums[i] is even, i is even. Return any answer array that satisfies this condition.
+a = [23, 14, 88, 56, 67, 83, 20, 29]
+n = len(a)
+print("even conditions:", end=" ")
+for i in range(n):
+    if i % 2 == 0:
+        print(a[i], end=" ")
+print("\nodd conditions:", end=" ")
+for i in range(n):
+    if i % 2 != 0:
+        print(a[i], end=" ")
