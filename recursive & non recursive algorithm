@@ -1,0 +1,12 @@
+Write C programs that demonstrate the mathematical analysis of non-recursive and recursive algorithms.
+def fact(n):
+    if n <= 1:
+        return n
+    else:
+        return n * fact(n - 1)
+n1, n2 = map(int, input("Enter two numbers: ").split())
+sum = 0
+for i in range(n1 + 1):
+    sum += i
+print(f"Sum = {sum}")
+print(f"Factorial = {fact(n2)}")
