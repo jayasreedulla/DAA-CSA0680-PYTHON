@@ -1,0 +1,9 @@
+Given an array of integers nums, half of the integers in nums are odd, and the other half are even.
+def divide_array(nums):
+    odd_nums = [num for num in nums if num % 2 != 0]
+    even_nums = [num for num in nums if num % 2 == 0]
+    return odd_nums, even_nums
+nums = [1, 2, 3, 4, 5, 6]
+odd_nums, even_nums = divide_array(nums)
+print("Odd Numbers:", odd_nums)
+print("Even Numbers:", even_nums)
