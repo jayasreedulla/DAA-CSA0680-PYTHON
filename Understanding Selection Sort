@@ -1,0 +1,18 @@
+def selection_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        min_idx = i
+        for j in range(i + 1, n):
+            if arr[j] < arr[min_idx]:
+                min_idx = j
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]
+    return arr
+print("Sorting a Random Array:")
+print("Input: [5, 2, 9, 1, 5, 6]")
+print("Output:", selection_sort([5, 2, 9, 1, 5, 6])) 
+print("\nSorting a Reverse Sorted Array:")
+print("Input: [10, 8, 6, 4, 2]")
+print("Output:", selection_sort([10, 8, 6, 4, 2])) 
+print("\nsorting an already sorted array:")
+print("input:[1,2,3,4,5]")
+print("output:",selection_sort([1,2,3,4,5]))
