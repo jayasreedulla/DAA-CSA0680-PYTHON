@@ -1,0 +1,17 @@
+def linear_search(arr, key):
+    for i in range(len(arr)):
+        if arr[i] == key:
+            return i
+    return -1
+
+def main():
+    arr = [56, 89, 7, 13, 75, 23, 8, 12]
+    key = 75
+    pos = linear_search(arr, key)
+    if pos != -1:
+        print(f"Key element {key} found at position {pos}")
+    else:
+        print(f"Key element {key} not found")
+
+if __name__ == "__main__":
+    main()
