@@ -1,0 +1,16 @@
+def even_fibonacci_sum(n):
+    a, b = 0, 1
+    even_sum = 0
+    while a <= n:
+        if a % 2 == 0:
+            even_sum += a
+        a, b = b, a + b
+    return even_sum
+
+def main():
+    n = int(input("Enter the number N: "))
+    result = even_fibonacci_sum(n)
+    print(f"Sum of even Fibonacci numbers up to {n} is {result}")
+
+if __name__ == "__main__":
+    main()
