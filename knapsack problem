@@ -1,0 +1,28 @@
+def knapsack(knapsack_weight, item_weights, item_profits):
+    n = len(item_weights)
+    selected_items = [0] * n
+    total_weight = 0
+    total_profit = 0
+
+    for i in range(n):
+        if total_weight + item_weights[i] <= knapsack_weight:
+            selected_items[i] = 1
+            total_weight += item_weights[i]
+            total_profit += item_profits[i]
+
+    print("Selected items:")
+    for i in range(n):
+        if selected_items[i] == 1:
+            print(f"Item {i + 1}")
+
+    print(f"Total Profit: {total_profit}")
+
+def main():
+    knapsack_weight = 100
+    item_weights = [40, 30, 20, 30]
+    item_profits = [80, 70, 50, 80]
+
+    knapsack(knapsack_weight, item_weights, item_profits)
+
+if __name__ == "__main__":
+    main()
