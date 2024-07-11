@@ -1,0 +1,25 @@
+def min_path_distance(dist):
+    n = len(dist)
+    memo = {}
+    def min_path(node, visited):
+        if visited == (1 << n) - 1:
+            return dist[node][0]  
+        if (node, visited) in memo:
+            return memo[(node, visited)]
+        min_cost = float('inf')
+        for next_node in range(n):
+            if not visited & (1 << next_node): 
+                new_visited = visited | (1 << next_node)  
+                current_cost = dist[node][next_node] + min_path(next_node, new_visited)
+                min_cost = min(min_cost, current_cost)
+        memo[(node, visited)] = min_cost
+        return min_cost
+    return min_path(0, 1)
+dist = [
+    [0, 10, 15, 20],
+    [10, 0, 35, 25],
+    [15, 35, 0, 30],
+    [20, 25, 30, 0]
+]
+min_distance = min_path_distance(dist)
+print(f"The minimum path distance is: {min_distance}")
