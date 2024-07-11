@@ -1,0 +1,21 @@
+def count_zero_sum_tuples(A, B, C, D):
+    AB_sum = {}
+    for a in A:
+        for b in B:
+            sum_ab = a + b
+            if sum_ab in AB_sum:
+                AB_sum[sum_ab] += 1
+            else:
+                AB_sum[sum_ab] = 1
+    count = 0
+    for c in C:
+        for d in D:
+            sum_cd = c + d
+            if -sum_cd in AB_sum:
+                count += AB_sum[-sum_cd]
+    return count
+A = [1, 2]
+B = [-2, -1]
+C = [-1, 2]
+D = [0, 2]
+print(count_zero_sum_tuples(A, B, C, D)) 
