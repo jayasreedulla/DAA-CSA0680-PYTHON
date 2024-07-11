@@ -1,0 +1,20 @@
+def word_break(s, wordDict):
+    memo = {}
+    def can_segment(s, wordDict, memo):
+        if s in memo:
+            return memo[s]
+        if s == '':
+            return True
+        for i in range(len(s)):
+            if s[:i+1] in wordDict and can_segment(s[i+1:], wordDict, memo):
+                memo[s] = True
+                return True
+        memo[s] = False
+        return False
+    return can_segment(s, wordDict, memo)
+s = "ilike"
+wordDict = {"i", "like", "sam", "sung", "samsung", "mobile", "ice", "cream", "icecream", "man", "go", "mango"}
+print("Input:")
+print("s =", s)
+print("wordDict =", wordDict)
+print("Output:", "Yes" if word_break(s, wordDict) else "No")
