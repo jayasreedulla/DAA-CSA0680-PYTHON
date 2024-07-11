@@ -1,0 +1,36 @@
+def fullJustify(words, maxWidth):
+    result = []
+    current_line = []
+    current_width = 0
+    for word in words:
+        if current_width + len(word) + len(current_line) > maxWidth:
+            # justify current line
+            spaces_to_insert = maxWidth - current_width
+            if len(current_line) == 1:
+                line = current_line[0] + ' ' * spaces_to_insert
+            else:
+                num_gaps = len(current_line) - 1
+                spaces_between_words = spaces_to_insert // num_gaps
+                extra_spaces = spaces_to_insert % num_gaps
+                line = ''
+                for i in range(num_gaps):
+                    line += current_line[i] + ' ' * (spaces_between_words + (1 if i < extra_spaces else 0))
+                line += current_line[-1]  
+            result.append(line)
+            current_line = []
+            current_width = 0
+        current_line.append(word)
+        current_width += len(word)
+    last_line = ' '.join(current_line)
+    last_line += ' ' * (maxWidth - len(last_line))
+    result.append(last_line)
+    return result
+words = ["This", "is", "an", "example", "of", "text", "justification."]
+maxWidth = 16
+print("Input:")
+print("words =", words)
+print("maxWidth =", maxWidth)
+print("Output:")
+justified_text = fullJustify(words, maxWidth)
+for line in justified_text:
+    print(f'"{line}"')
